@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Girl Crush 💜</title>
+    <style>
+        /* General Styles - Kept the same for consistency */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f3e8ff, #a855f7);
+            color: #4c1d95;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .page {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .page.hidden {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(0.9);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+            to { text-shadow: 0 0 10px #d946ef, 0 0 20px #a855f7; }
+        }
+        button {
+            background: #d946ef;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s, background 0.3s;
+            margin: 10px;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background: #a855f7;
+        }
+        .message {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .facts {
+            list-style: none;
+            padding: 0;
+        }
+        .facts li {
+            margin: 10px 0;
+            font-size: 1.1em;
+            transition: color 0.3s;
+            color: #6d28d9;
+        }
+        .facts li:hover {
+            color: #ec4899;
+        }
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            font-size: 2em;
+            color: #ec4899;
+            animation: floatUp 5s linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg) scale(1); opacity: 0.8; }
+            100% { transform: translateY(-100px) rotate(360deg) scale(0.5); opacity: 0; }
+        }
+
+        /* --- UPDATED Photo Gallery Styles for 2x2 Grid --- */
+        #page3 {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            max-width: 600px; /* Constrain the page width for the grid */
+        }
+        .photo-gallery {
+            /* Use CSS Grid for the 2x2 layout */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal columns */
+            gap: 20px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .photo-container {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            width: 100%; 
+            padding-top: 100%; /* Creates a perfect square based on width */
+            position: relative;
+        }
+        .photo-container:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        .photo-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .ribbon {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #9333ea;
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.9em;
+            transform: rotate(45deg);
+            transform-origin: 100% 0%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.8em;
+            opacity: 0.8;
+            color: #6d28d9;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <audio id="song1" src="C:\Users\jayju\Downloads\Paramore - The Only Exception (Audio).mp3" preload="auto"></audio>
+    <audio id="song2" src="[YOUR_SONG_URL_2.mp3]" preload="auto"></audio>
+    <audio id="song3" src="[YOUR_SONG_URL_3.mp3]" preload="auto"></audio>
+    <audio id="song4" src="[YOUR_SONG_URL_4.mp3]" preload="auto"></audio>
+
+
+    <div id="page1" class="page">
+        <h1>Hey, My Girl Crush! 💖</h1>
+        <p>Click the button to see something special...</p>
+        <button onclick="showPage2()">Reveal the Magic 💜</button>
+    </div>
+
+    <div id="page2" class="page hidden">
+        <div class="hearts">
+            <div class="heart" style="left: 10%; animation-delay: 0s;">💖</div>
+            <div class="heart" style="left: 20%; animation-delay: 1s;">💜</div>
+            <div class="heart" style="left: 30%; animation-delay: 2s;">💕</div>
+            <div class="heart" style="left: 40%; animation-delay: 3s;">💖</div>
+            <div class="heart" style="left: 50%; animation-delay: 4s;">💜</div>
+            <div class="heart" style="left: 60%; animation-delay: 5s;">💕</div>
+            <div class="heart" style="left: 70%; animation-delay: 6s;">💖</div>
+            <div class="heart" style="left: 80%; animation-delay: 7s;">💜</div>
+            <div class="heart" style="left: 90%; animation-delay: 8s;">💕</div>
+        </div>
+        <h1>You're Amazing! 🌟</h1>
+        
+        <div class="message">
+            <h2>A Special Message for You</h2>
+            <p>**[Placeholder: Put your personal message here, like "I think you're amazing and I can't stop thinking about you!"]**</p>
+        </div>
+        
+        <div class="message">
+            <h2>Why You're So Cute</h2>
+            <ul class="facts">
+                <li>**[Placeholder: Cute fact 1, e.g., "Your smile lights up my day! 🌟"]**</li>
+                <li>**[Placeholder: Cute fact 2, e.g., "I love how you laugh at my jokes. 😂"]**</li>
+                <li>**[Placeholder: Cute fact 3, e.g., "You're the most kind-hearted person I know. 💕"]**</li>
+                <li>**[Placeholder: Cute fact 4, e.g., "Your eyes sparkle like stars. ✨"]**</li>
+            </ul>
+        </div>
+        
+        <button onclick="showPage3()">See Our Memories Together! 📸</button>
+
+        <footer>
+            Made with 💜 just for you! ✨
+        </footer>
+    </div>
+
+    <div id="page3" class="page hidden">
+        <h1>Our Cute Photos! 😍</h1>
+        <p>Click any photo to hear its special song!</p>
+        <div class="photo-gallery">
+            
+            <div class="photo-container" onclick="playSong(1)">
+                <div class="ribbon">Song 1!</div>
+                <img src="C:\Users\jayju\Downloads\37c67cab-dc67-478a-b8e9-37c6357c0c53.jpg" alt="A cute picture of you two">
+            </div>
+
+            <div class="photo-container" onclick="playSong(2)">
+                <div class="ribbon">Song 2!</div>
+                <img src="C:\Users\jayju\Downloads\37c67cab-dc67-478a-b8e9-37c6357c0c53.jpg" alt="Another sweet photo">
+            </div>
+
+            <div class="photo-container" onclick="playSong(3)">
+                <div class="ribbon">Song 3!</div>
+                <img src="C:\Users\jayju\Downloads\37c67cab-dc67-478a-b8e9-37c6357c0c53.jpg" alt="A funny moment">
+            </div>
+            
+            <div class="photo-container" onclick="playSong(4)">
+                <div class="ribbon">Song 4!</div>
+                <img src="C:\Users\jayju\Downloads\37c67cab-dc67-478a-b8e9-37c6357c0c53.jpg" alt="A great memory">
+            </div>
+
+        </div>
+        
+        <button onclick="showPage2()">Go Back</button>
+
+        <footer>
+            Hope you liked the photos and music! 📸💜
+        </footer>
+    </div>
+
+
+    <script>
+        function stopAllSongs() {
+            // Pause and reset all songs
+            for (let i = 1; i <= 4; i++) {
+                const song = document.getElementById('song' + i);
+                if (song) {
+                    song.pause();
+                    song.currentTime = 0;
+                }
+            }
+        }
+        
+        function showPage2() {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page3').classList.add('hidden');
+            stopAllSongs(); // Stop music when navigating away from the gallery
+            
+            setTimeout(() => {
+                document.getElementById('page2').classList.remove('hidden');
+            }, 500);
+        }
+        
+        function showPage3() {
+            document.getElementById('page2').classList.add('hidden');
+            setTimeout(() => {
+                document.getElementById('page3').classList.remove('hidden');
+            }, 500);
+        }
+
+        function playSong(songNumber) {
+            stopAllSongs(); // Stop any currently playing song first
+
+            const songToPlay = document.getElementById('song' + songNumber);
+            if (songToPlay) {
+                songToPlay.currentTime = 0; // Start from the beginning
+                songToPlay.play().catch(error => {
+                    console.error("Autoplay prevented for song " + songNumber + ".", error);
+                    // User may need to interact with the page first for music to play
+                });
+            }
+        }
+    </script>
+</body>
+</html>
